@@ -1,9 +1,15 @@
 <template>
-  <div>
-    <h2>我的</h2>
+  <div id='profile'>
+    <nav-bar class="profile-nav">
+      <template v-slot:center>
+        我的
+      </template>
+    </nav-bar>
   </div>
 </template>
 <script>
+  import NavBar from 'components/common/navbar/NavBar'
+
   export default {
     name: 'profile',
     data() {
@@ -13,6 +19,7 @@
     props: {
     },
     components: {
+      NavBar
     },
     mounted() {
     },
@@ -22,4 +29,7 @@
 </script>
 
 <style scoped>
+  .profile-nav{
+    background-color: darkorange;
+  }
 </style>

@@ -2,14 +2,13 @@ module.exports = {
   configureWebpack: {
     resolve: {
       alias: {
-        // 配置路径的别名，方面后面的简写
-        'assets': '@/assets',
-        'common': '@/common',
         'components': '@/components',
+        'content': 'components/content',
+        'common': 'components/common',
+        'assets': '@/assets',
         'network': '@/network',
-        'views':'@/views'
+        'views': '@/views',
       }
-
-    },
+    }
   }
 }

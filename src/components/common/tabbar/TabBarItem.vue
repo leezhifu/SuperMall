@@ -7,7 +7,7 @@
     <!-- 然后通过样式继承的方式，让插槽继承外层 `div` 上面的样式 -->
     <!-- 所以最好都在 `slot` 的外层包裹一层 `div`，来预留样式 -->
     <!-- slot 标签只写 `name=xxx` 属性，其他的属性一律写在外层 `div` 上 -->
-    <div :class={active:isActive}><slot name='item-text'></slot></div>
+    <div :style='activeStyle'><slot name='item-text'></slot></div>
   </div>
 </template>
 
@@ -15,7 +15,11 @@
   export default {
     name:'TabBarItem',
     props:{
-      path:String
+      path:String,
+      activeColor:{
+        type:String,
+        default:'orange'
+      }
     },
     data(){
       return{
@@ -25,6 +29,9 @@
     computed:{
       isActive(){
         return this.$route.path.indexOf(this.path) !== -1
+      },
+      activeStyle(){
+        return this.isActive?{color:this.activeColor}:{}
       }
     },
     methods:{
@@ -51,9 +58,4 @@
     vertical-align: middle;
     margin-bottom: 4px;
   }
-
-  .active{
-    color:orangered;
-  }
-
 </style>
